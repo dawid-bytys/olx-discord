@@ -28,6 +28,7 @@ bot.on("ready", () => {
 
                     channel.send(offerEmbed);
                 }
+                
                 latestOffer = url;
             }
         } catch (err) {
