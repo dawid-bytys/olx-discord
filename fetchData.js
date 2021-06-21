@@ -2,10 +2,11 @@ import axios from "axios";
 import cheerio from "cheerio";
 
 export const fetchOlx = async url => {
+  // Try to fetch the latest possible offer from the OLX listing
   try {
     const { data } = await axios.get(url);
 
-    const $ = cheerio.load(data); // parse the axios response with cheerio
+    const $ = cheerio.load(data); // parse an axios response with cheerio
 
     // CHEERIO VARIABLES
     const firstOffer = $(
@@ -22,6 +23,7 @@ export const fetchOlx = async url => {
       .find("td.title-cell > div > h3 > a")
       .attr("href");
 
+    // Return needed data
     return {
       title: offerTitle,
       price: offerPrice,
