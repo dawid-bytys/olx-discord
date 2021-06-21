@@ -7,7 +7,7 @@ const bot = new Discord.Client();
 // GLOBAL VARIABLES
 const prefix = "!";
 let currentOffer = "wacom"; // default value is "wacom"
-let latestOfferArr = []; // using an array because there is some bug with just a string equasion
+let latestOfferArr = []; // using an array because there is some bug with just a string comparison
 
 bot.on("ready", () => {
   console.log(`Logged in as ${bot.user.tag}!`);
