@@ -20,7 +20,7 @@ bot.on("ready", () => {
       `https://www.olx.pl/oferty/q-${currentOffer}/?search%5Border%5D=created_at%3Adesc`
     );
 
-    if (!title || latestOfferArray.includes(url)) return;
+    if (!title || latestOfferArr.includes(url)) return;
 
     const offerEmbed = new Discord.MessageEmbed()
       .setColor("#57E5DB")
