@@ -6,7 +6,7 @@ const bot = new Discord.Client(); // initialize the bot
 // GLOBAL VARIABLES
 const prefix = "!";
 let currentOffer = "wacom"; // default value is "wacom"
-let latestOffer = "";
+let latestOfferArr = [];
 
 bot.on("ready", () => {
   console.log(`Logged in as ${bot.user.tag}!`);
@@ -20,7 +20,7 @@ bot.on("ready", () => {
       `https://www.olx.pl/oferty/q-${currentOffer}/?search%5Border%5D=created_at%3Adesc`
     );
 
-    if (!title || url === latestOffer) return;
+    if (!title || latestOfferArray.includes(url)) return;
 
     const offerEmbed = new Discord.MessageEmbed()
       .setColor("#57E5DB")
@@ -31,7 +31,7 @@ bot.on("ready", () => {
 
     channel.send(offerEmbed);
 
-    latestOffer = url;
+    latestOfferArr.push(url);
   }, 3000);
 });
 
